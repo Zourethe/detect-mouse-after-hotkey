@@ -1,19 +1,26 @@
-# Imports
+'''
+                            Detetec Mouse After Hotkey
+    
+    This is the main file of the script, the one that will detect the keys input
+    and execute the basic actions.
+
+    Author: Zourethe
+    Date: July, 17, 2023
+'''
+
+# Libraries imports.
 from pynput import keyboard, mouse
 
-
-# Variables
+# Variables definition.
 shift_l = False
 ctrl_l = False
 toggle = False
 clicked = False
 
-
-# Controller
+# Pynput controller definition.
 ms_ctrllr = mouse.Controller()
 
-
-# On press function
+# On press function definition.
 def on_press(key):
     global ctrl_l, shift_l, toggle
 
@@ -29,8 +36,7 @@ def on_press(key):
         else:
             toggle = False
 
-
-# On release function
+# On release function definition.
 def on_release(key):
     global ctrl_l, shift_l, toggle
 
@@ -40,21 +46,18 @@ def on_release(key):
     elif key == keyboard.Key.shift_l and ctrl_l:
         shift_l = False
 
-
-# On click function
+# On click function definition.
 def on_click(x, y, button, pressed):
     global toggle, clicked
 
     if pressed and toggle:
         print('Output')
 
-
-# Listeners definition
+# Pynput listeners definition.
 kb_lstnr = keyboard.Listener(on_press = on_press, on_release = on_release)
 ms_lstnr = mouse.Listener(on_click = on_click)
 
-
-# Listeners start
+# Pynput listeners start.
 ms_lstnr.start()
 kb_lstnr.start()
 ms_lstnr.join()
