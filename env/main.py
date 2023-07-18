@@ -1,5 +1,5 @@
 '''
-                            Detetec Mouse After Hotkey
+                                                    Detetec Mouse After Hotkey
     
     This is the main file of the script, the one that will detect the keys input
     and execute the basic actions.
