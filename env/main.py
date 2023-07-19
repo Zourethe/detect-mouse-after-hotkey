@@ -16,9 +16,6 @@ shift_l = False
 ctrl_l = False
 toggle = False
 
-# Pynput controller definition.
-ms_ctrllr = mouse.Controller()
-
 # On press function definition.
 def on_press(key):
     global ctrl_l, shift_l, toggle
