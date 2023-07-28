@@ -8,15 +8,15 @@
     Date: July, 17, 2023
 '''
 
-# Libraries imports.
+# Imports.
 from pynput import keyboard, mouse
 
-# Variables definition.
+# Variables.
 shift_l = False
 ctrl_l = False
 toggle = False
 
-# On press function definition.
+# On press function.
 def on_press(key):
     global ctrl_l, shift_l, toggle
     if key == keyboard.Key.ctrl_l:
@@ -29,7 +29,7 @@ def on_press(key):
         else:
             toggle = False
 
-# On release function definition.
+# On release function.
 def on_release(key):
     global ctrl_l, shift_l, toggle
     if key == keyboard.Key.ctrl_l:
@@ -37,16 +37,16 @@ def on_release(key):
     elif key == keyboard.Key.shift_l and ctrl_l:
         shift_l = False
 
-# On click function definition.
+# On click function.
 def on_click(x, y, button, pressed):
     if pressed and toggle:
         print('Output')
 
-# Pynput listeners definition.
+# Pynput listeners.
 kb_lstnr = keyboard.Listener(on_press = on_press, on_release = on_release)
 ms_lstnr = mouse.Listener(on_click = on_click)
 
-# Pynput listeners start.
+# Listeners start.
 ms_lstnr.start()
 kb_lstnr.start()
 ms_lstnr.join()
